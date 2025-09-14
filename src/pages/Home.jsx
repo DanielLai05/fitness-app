@@ -7,7 +7,7 @@ import WorkoutCard from '../components/WorkoutCard';
 export default function Home() {
   return (
     <Container className='my-3'>
-      <h3>{userData.name}'s workout</h3>
+      <h3 className='text-light'>{userData.name}'s workout</h3>
       <Container>
         <WorkoutCard />
 
