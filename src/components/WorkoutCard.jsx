@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
-import { userDetails } from '../data'
+import { WorkoutContext } from '../context/WorkoutContext'
 
 export default function WorkoutCard() {
-  const { workouts } = userDetails
+  const { userDetails, setUserDetails } = useContext(WorkoutContext);
+  const { workouts } = userDetails;
   return (
     <>
       <Row>
-        {workouts.map((workout) => (
-          <Col xss={3} className='my-2'>
+        {workouts.map((workout, index) => (
+          <Col xss={3} className='my-2' key={index}>
             <Card style={{ width: '300px' }}>
               <Card.Body>
                 <Card.Title>{workout.name}</Card.Title>

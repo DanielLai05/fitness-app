@@ -2,6 +2,9 @@ import React from 'react'
 import Home from './pages/Home'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { userData } from './data'
+import useLocalStorage from 'use-local-storage'
+import { WorkoutContext } from './context/WorkoutContext'
 
 function Layout() {
   return (
@@ -25,13 +28,17 @@ function Layout() {
 }
 
 export default function App() {
+  const [userDetails, setUserDetails] = useLocalStorage('workouts', userData)
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Home />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <WorkoutContext.Provider value={{ userDetails, setUserDetails }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='/' element={<Home />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </WorkoutContext.Provider>
   )
 }
