@@ -6,6 +6,7 @@ import { userData } from './data'
 import useLocalStorage from 'use-local-storage'
 import { WorkoutContext } from './context/WorkoutContext'
 import AddWorkout from './pages/AddWorkout'
+import EditWorkout from './pages/EditWorkout'
 
 function Layout() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/' element={<Home />} />
             <Route path='add' element={<AddWorkout />} />
+            <Route path='workout/:id' element={<EditWorkout />} />
           </Route>
         </Routes>
       </BrowserRouter>
