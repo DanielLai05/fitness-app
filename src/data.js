@@ -4,7 +4,6 @@ export const workoutDetails = {
   warmUpReps: 6,
   workingSet: 3,
   reps: 10,
-  restMin: 5,
   weight: 20,
   note: '1 second pause at the bottom of each rep while maintaining tension on the pecs'
 }
@@ -14,10 +13,5 @@ export const workoutDetails = {
 export const userData = {
   id: 12345,
   name: 'Jerome',
-  workouts: [
-    workoutDetails,
-    workoutDetails,
-    workoutDetails,
-    workoutDetails,
-  ],
+  workouts: [],
 }
