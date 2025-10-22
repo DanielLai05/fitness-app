@@ -27,7 +27,8 @@ export default function AddWorkout() {
       workingSets,
       workingReps,
       weight,
-      notes
+      notes,
+      completed: false
     }
     setUserDetails({ ...userDetails, workouts: [...userDetails.workouts, workoutDetail] });
     navigate('/')
