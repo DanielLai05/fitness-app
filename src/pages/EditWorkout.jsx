@@ -24,6 +24,7 @@ export default function EditWorkout() {
     const newWorkouts = userDetails.workouts.map((workout) => {
       if (workout.id === id) {
         return {
+          completed: workout.completed,
           id,
           name,
           warmUpSets,

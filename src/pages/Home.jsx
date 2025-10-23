@@ -13,8 +13,8 @@ export default function Home() {
       <Container>
         <Row>
           {
-            userDetails.workouts.map((workout) => (
-              <WorkoutCard workout={workout} />
+            userDetails.workouts.map((workout, index) => (
+              <WorkoutCard workout={workout} key={index} />
             ))
           }
         </Row>
