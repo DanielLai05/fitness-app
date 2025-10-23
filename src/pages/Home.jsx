@@ -9,7 +9,7 @@ export default function Home() {
   const { userDetails } = useContext(WorkoutContext);
   return (
     <Container className='my-3 px-4'>
-      <h3 className='text-light'>{userData.name}'s workout</h3>
+      <h3 className='text-light'>{userData.name}'s workouts</h3>
       <Container>
         <Row>
           {

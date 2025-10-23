@@ -7,17 +7,19 @@ import useLocalStorage from 'use-local-storage'
 import { WorkoutContext } from './context/WorkoutContext'
 import AddWorkout from './pages/AddWorkout'
 import EditWorkout from './pages/EditWorkout'
+import Profile from './pages/Profile'
 
 function Layout() {
   return (
     <>
       <Navbar expand='lg' bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href='/'>Workout Planner</Navbar.Brand>
+          <Navbar.Brand>Fitness App</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="add">Add Workout</Nav.Link>
+              <Nav.Link href="/">Workouts</Nav.Link>
+              <Nav.Link href="/">Goals & Statistics</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -41,6 +43,7 @@ export default function App() {
             <Route path='/' element={<Home />} />
             <Route path='add' element={<AddWorkout />} />
             <Route path='workout/:id' element={<EditWorkout />} />
+            <Route path='profile' element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>
