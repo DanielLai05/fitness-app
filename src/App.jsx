@@ -14,7 +14,7 @@ function Layout() {
     <>
       <Navbar expand='lg' bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand>Fitness App</Navbar.Brand>
+          <Navbar.Brand href='/'>Fitness App</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

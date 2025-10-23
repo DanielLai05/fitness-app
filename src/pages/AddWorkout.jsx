@@ -33,7 +33,7 @@ export default function AddWorkout() {
         workingSets,
         workingReps,
         weight,
-        notesWeightLifting,
+        notes: notesWeightLifting,
         completed: false
       }
       :
@@ -43,7 +43,8 @@ export default function AddWorkout() {
         name: nameCardio,
         distance,
         time,
-        notesCardio
+        notes: notesCardio,
+        completed: false
       }
 
     setUserDetails({ ...userDetails, workouts: [...userDetails.workouts, workoutDetail] });
