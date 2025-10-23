@@ -3,6 +3,8 @@ import { userData } from '../data'
 import { Col, Container, Row } from 'react-bootstrap';
 import WorkoutCard from '../components/WorkoutCard';
 import { WorkoutContext } from '../context/WorkoutContext';
+import AddWorkout from './AddWorkout';
+import AddWorkoutCard from '../components/AddWorkoutCard';
 
 
 export default function Home() {
@@ -17,6 +19,7 @@ export default function Home() {
               <WorkoutCard workout={workout} key={index} />
             ))
           }
+          <AddWorkoutCard length={userDetails.workouts.length} />
         </Row>
       </Container>
     </Container>

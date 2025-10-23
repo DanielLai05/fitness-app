@@ -37,7 +37,7 @@ export default function WorkoutCard({ workout }) {
   return (
     <>
       {workout.type === 'weight-lifting' ? (
-        <Col md={3} className='my-2'>
+        <Col lg={3} className='my-2'>
           <Card bg='dark' text='light' border={`${completionColor} border-3`} className='h-100'>
             <Card.Header className={`border-${completionColor} border-3`}>{workout.name}</Card.Header>
             <Card.Body className='d-flex flex-column'>
@@ -73,7 +73,7 @@ export default function WorkoutCard({ workout }) {
           </Card>
         </Col>
       ) : (
-        <Col md={3} className='my-2'>
+        <Col lg={3} className='my-2'>
           <Card bg='dark' text='light' border={`${completionColor} border-3`} className='h-100'>
             <Card.Header className={`border-${completionColor} border-3`}>{workout.name}</Card.Header>
             <Card.Body className='d-flex flex-column'>
