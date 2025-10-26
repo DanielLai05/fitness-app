@@ -10,6 +10,7 @@ import EditWorkout from './pages/EditWorkout'
 import Profile from './pages/Profile'
 import GoalsAndStats from './pages/GoalsAndStats'
 import AddGoals from './pages/AddGoals'
+import EditGoals from './pages/EditGoals'
 
 function Layout() {
   return (
@@ -21,7 +22,7 @@ function Layout() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Workouts</Nav.Link>
-              <Nav.Link href="stats">Goals & Statistics</Nav.Link>
+              <Nav.Link href="/stats">Goals & Statistics</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -46,6 +47,7 @@ export default function App() {
             <Route path='profile' element={<Profile />} />
             <Route path='stats' element={<GoalsAndStats />} />
             <Route path='stats/add' element={<AddGoals />} />
+            <Route path='stats/:id' element={<EditGoals />} />
           </Route>
         </Routes>
       </BrowserRouter>
