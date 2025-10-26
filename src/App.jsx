@@ -8,6 +8,7 @@ import { WorkoutContext } from './context/WorkoutContext'
 import AddWorkout from './pages/AddWorkout'
 import EditWorkout from './pages/EditWorkout'
 import Profile from './pages/Profile'
+import GoalsAndStats from './pages/GoalsAndStats'
 
 function Layout() {
   return (
@@ -19,12 +20,10 @@ function Layout() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Workouts</Nav.Link>
-              <Nav.Link href="/">Goals & Statistics</Nav.Link>
+              <Nav.Link href="stats">Goals & Statistics</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
-
-
       </Navbar>
       <Outlet />
     </>
@@ -44,6 +43,7 @@ export default function App() {
             <Route path='add' element={<AddWorkout />} />
             <Route path='workout/:id' element={<EditWorkout />} />
             <Route path='profile' element={<Profile />} />
+            <Route path='stats' element={<GoalsAndStats />} />
           </Route>
         </Routes>
       </BrowserRouter>
