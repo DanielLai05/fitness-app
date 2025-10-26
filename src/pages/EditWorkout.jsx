@@ -17,13 +17,15 @@ export default function EditWorkout() {
   const [workingReps, setWorkingReps] = useState((workout.workingReps));
   const [workingSets, setWorkingSets] = useState((workout.workingSets));
   const [notes, setNotes] = useState(workout.notes);
+  const [distance, setDistance] = useState(workout.distance);
+  const [time, setTime] = useState(workout.time);
   const navigate = useNavigate();
 
   function handleUpdate(e) {
     e.preventDefault();
     const newWorkouts = userDetails.workouts.map((workout) => {
       if (workout.id === id) {
-        return {
+        return workout.type === 'weight-lifting' ? {
           completed: workout.completed,
           id,
           name,
@@ -32,97 +34,163 @@ export default function EditWorkout() {
           workingSets,
           workingReps,
           weight,
-          notes
+          notes,
+          type: workout.type
+        } : {
+          completed: workout.completed,
+          id,
+          name,
+          distance,
+          time,
+          notes,
+          type: workout.type
         }
+
       } else {
         return workout;
       }
     });
-    console.log(newWorkouts);
     setUserDetails({ ...userDetails, workouts: newWorkouts });
     navigate('/')
   }
   return (
-    <Container data-bs-theme="dark" className='my-3'>
-      <Form onSubmit={handleUpdate}>
-        <h2>Edit Workout</h2>
-        <Form.Group className="my-3" >
-          <Form.Label>Exercise name</Form.Label>
-          <Form.Control
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            type="text"
-            placeholder="Enter exercise name"
-          />
-        </Form.Group>
+    <>
+      {
+        workout.type === 'weight-lifting' ? (
+          <Container data-bs-theme="dark" className='my-3'>
+            <Form onSubmit={handleUpdate}>
+              <h2>Edit Workout</h2>
+              <Form.Group className="my-3" >
+                <Form.Label>Exercise name</Form.Label>
+                <Form.Control
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  type="text"
+                  placeholder="Enter exercise name"
+                />
+              </Form.Group>
 
-        <Form.Group className="my-3" >
-          <Form.Label>Weight</Form.Label>
-          <Form.Control
-            onChange={(e) => setWeight(e.target.value)}
-            value={weight}
-            type="number"
-            placeholder="Enter weight"
-          />
-        </Form.Group>
+              <Form.Group className="my-3" >
+                <Form.Label>Weight</Form.Label>
+                <Form.Control
+                  onChange={(e) => setWeight(e.target.value)}
+                  value={weight}
+                  type="number"
+                  placeholder="Enter weight"
+                />
+              </Form.Group>
 
-        <Row className='my-3'>
-          <Form.Group as={Col}>
-            <Form.Label>Warm-up reps</Form.Label>
-            <Form.Control
-              onChange={(e) => setWarmUpReps(e.target.value)}
-              value={warmUpReps}
-              type="number"
-              placeholder="Enter warm-up sets"
-            />
-          </Form.Group>
-          <Form.Group as={Col}>
-            <Form.Label>Warm-up sets</Form.Label>
-            <Form.Control
-              onChange={(e) => setWarmUpSets(e.target.value)}
-              value={warmUpSets}
-              type="number"
-              placeholder="Enter warm-up sets"
-            />
-          </Form.Group>
+              <Row className='my-3'>
+                <Form.Group as={Col}>
+                  <Form.Label>Warm-up reps</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setWarmUpReps(e.target.value)}
+                    value={warmUpReps}
+                    type="number"
+                    placeholder="Enter warm-up sets"
+                  />
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Warm-up sets</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setWarmUpSets(e.target.value)}
+                    value={warmUpSets}
+                    type="number"
+                    placeholder="Enter warm-up sets"
+                  />
+                </Form.Group>
 
-        </Row>
-        <Row className='my-3'>
-          <Form.Group as={Col}>
-            <Form.Label>Working reps</Form.Label>
-            <Form.Control
-              onChange={(e) => setWorkingReps(e.target.value)}
-              value={workingReps}
-              type="number"
-              placeholder="Enter working sets"
-            />
-          </Form.Group>
-          <Form.Group as={Col}>
-            <Form.Label>Working sets</Form.Label>
-            <Form.Control
-              onChange={(e) => setWorkingSets(e.target.value)}
-              value={workingSets}
-              type="number"
-              placeholder="Enter working sets"
-            />
-          </Form.Group>
-        </Row>
+              </Row>
+              <Row className='my-3'>
+                <Form.Group as={Col}>
+                  <Form.Label>Working reps</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setWorkingReps(e.target.value)}
+                    value={workingReps}
+                    type="number"
+                    placeholder="Enter working sets"
+                  />
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Working sets</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setWorkingSets(e.target.value)}
+                    value={workingSets}
+                    type="number"
+                    placeholder="Enter working sets"
+                  />
+                </Form.Group>
+              </Row>
 
-        <Form.Group className='my-3'>
-          <Form.Label>
-            Notes
-          </Form.Label>
-          <Form.Control
-            onChange={(e) => setNotes(e.target.value)}
-            value={notes}
-            as='textarea'
-            placeholder='Enter notes'
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </Container>
+              <Form.Group className='my-3'>
+                <Form.Label>
+                  Notes
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setNotes(e.target.value)}
+                  value={notes}
+                  as='textarea'
+                  placeholder='Enter notes'
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Container>
+        ) : (
+          <Container data-bs-theme="dark" className='my-3'>
+            <Form onSubmit={handleUpdate}>
+              <h2>Edit Workout</h2>
+              <Form.Group className="my-3" >
+                <Form.Label>Exercise name</Form.Label>
+                <Form.Control
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  type="text"
+                  placeholder="Enter exercise name"
+                />
+              </Form.Group>
+
+              <Form.Group className="my-3" >
+                <Form.Label>Distance</Form.Label>
+                <Form.Control
+                  onChange={(e) => setDistance(e.target.value)}
+                  value={distance}
+                  type="number"
+                  placeholder="Enter distance"
+                />
+              </Form.Group>
+
+              <Form.Group className='my-3'>
+                <Form.Label>Time (minutes)</Form.Label>
+                <Form.Control
+                  onChange={(e) => setTime(e.target.value)}
+                  value={time}
+                  type="number"
+                  placeholder="Enter time"
+                />
+              </Form.Group>
+
+              <Form.Group className='my-3'>
+                <Form.Label>
+                  Notes
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setNotes(e.target.value)}
+                  value={notes}
+                  as='textarea'
+                  placeholder='Enter notes'
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Container>
+        )
+      }
+    </>
+
   );
 }

@@ -14,7 +14,7 @@ export default function AddWorkoutCard({ length }) {
             className='h-100 w-100 border-none'
             onClick={() => navigate('add')}
           >
-            <i class="bi bi-plus-square fs-2"></i>
+            <i className="bi bi-plus-square fs-2"></i>
           </Button>
         </Card.Body>
       </Card>
@@ -25,7 +25,7 @@ export default function AddWorkoutCard({ length }) {
 
     length % 4 === 0 ?
       (
-        <Col lg={3} className='my-2' style={{ height: '180px' }}>
+        <Col lg={3} className='my-2' style={{ height: '210px' }}>
           <ColContent />
         </Col>
       )
