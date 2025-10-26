@@ -60,7 +60,7 @@ export default function WorkoutCard({ workout }) {
                 <Button
                   variant='warning'
                   className='me-2'
-                  onClick={() => navigate(`workout/${workout.id}`)}
+                  onClick={() => navigate(`/workout/${workout.id}`)}
                 >Edit</Button>
                 <Button
                   variant='danger'
@@ -95,7 +95,7 @@ export default function WorkoutCard({ workout }) {
                 <Button
                   variant='warning'
                   className='me-2'
-                  onClick={() => navigate(`workout/${workout.id}`)}
+                  onClick={() => navigate(`/workout/${workout.id}`)}
                 >Edit</Button>
                 <Button
                   variant='danger'

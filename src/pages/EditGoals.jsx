@@ -7,9 +7,9 @@ export default function EditGoals() {
   const id = parseInt(useParams().id);
   const { userDetails, setUserDetails } = useContext(WorkoutContext);
   const currentGoal = userDetails.goals.filter((goal) => goal.id === id)[0];
-  const [goal, setGoal] = useState(currentGoal.goal);
-  const [latestRecord, setLatestRecord] = useState(currentGoal.latestRecord);
-  const [completed, setCompleted] = useState(currentGoal.completed)
+  const [goal, setGoal] = useState(currentGoal?.goal);
+  const [latestRecord, setLatestRecord] = useState(currentGoal?.latestRecord);
+  const [completed, setCompleted] = useState(currentGoal?.completed)
   const navigate = useNavigate();
 
 
@@ -30,6 +30,10 @@ export default function EditGoals() {
     setUserDetails({ ...userDetails, goals: newGoal })
     navigate('/stats')
   }
+
+  if (!goal) return (
+    <h1 className='m-5'>Goal Not Found</h1>
+  )
   return (
     <Container className='my-3'>
       <h3>Add Goals</h3>

@@ -49,7 +49,9 @@ export default function App() {
             <Route path='stats/add' element={<AddGoals />} />
             <Route path='stats/:id' element={<EditGoals />} />
           </Route>
+          <Route path='*' element={<Home />} />
         </Routes>
+
       </BrowserRouter>
     </WorkoutContext.Provider>
 

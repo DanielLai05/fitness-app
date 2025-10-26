@@ -10,15 +10,15 @@ export default function EditWorkout() {
   const { userDetails, setUserDetails } = useContext(WorkoutContext)
   const workout = userDetails.workouts.filter((workout) => workout.id === id)[0]
 
-  const [name, setName] = useState(workout.name);
-  const [weight, setWeight] = useState((workout.weight));
-  const [warmUpReps, setWarmUpReps] = useState((workout.warmUpReps));
-  const [warmUpSets, setWarmUpSets] = useState((workout.warmUpSets));
-  const [workingReps, setWorkingReps] = useState((workout.workingReps));
-  const [workingSets, setWorkingSets] = useState((workout.workingSets));
-  const [notes, setNotes] = useState(workout.notes);
-  const [distance, setDistance] = useState(workout.distance);
-  const [time, setTime] = useState(workout.time);
+  const [name, setName] = useState(workout?.name);
+  const [weight, setWeight] = useState((workout?.weight));
+  const [warmUpReps, setWarmUpReps] = useState((workout?.warmUpReps));
+  const [warmUpSets, setWarmUpSets] = useState((workout?.warmUpSets));
+  const [workingReps, setWorkingReps] = useState((workout?.workingReps));
+  const [workingSets, setWorkingSets] = useState((workout?.workingSets));
+  const [notes, setNotes] = useState(workout?.notes);
+  const [distance, setDistance] = useState(workout?.distance);
+  const [time, setTime] = useState(workout?.time);
   const navigate = useNavigate();
 
   function handleUpdate(e) {
@@ -53,6 +53,10 @@ export default function EditWorkout() {
     setUserDetails({ ...userDetails, workouts: newWorkouts });
     navigate('/')
   }
+
+  if (!workout) return (
+    <h1 className='m-5'>Workout Not Found</h1>
+  )
   return (
     <>
       {

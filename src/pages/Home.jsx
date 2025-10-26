@@ -3,7 +3,6 @@ import { userData } from '../data'
 import { Container, Row, Badge } from 'react-bootstrap';
 import WorkoutCard from '../components/WorkoutCard';
 import { WorkoutContext } from '../context/WorkoutContext';
-import AddWorkout from './AddWorkout';
 import AddWorkoutCard from '../components/AddWorkoutCard';
 
 
