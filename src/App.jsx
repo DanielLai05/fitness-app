@@ -9,6 +9,7 @@ import AddWorkout from './pages/AddWorkout'
 import EditWorkout from './pages/EditWorkout'
 import Profile from './pages/Profile'
 import GoalsAndStats from './pages/GoalsAndStats'
+import AddGoals from './pages/AddGoals'
 
 function Layout() {
   return (
@@ -40,10 +41,11 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route path='/' element={<Home />} />
-            <Route path='add' element={<AddWorkout />} />
+            <Route path='workout/add' element={<AddWorkout />} />
             <Route path='workout/:id' element={<EditWorkout />} />
             <Route path='profile' element={<Profile />} />
             <Route path='stats' element={<GoalsAndStats />} />
+            <Route path='stats/add' element={<AddGoals />} />
           </Route>
         </Routes>
       </BrowserRouter>

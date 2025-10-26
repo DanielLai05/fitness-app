@@ -12,7 +12,7 @@ export default function AddWorkoutCard({ length }) {
           <Button
             variant='dark'
             className='h-100 w-100 border-none'
-            onClick={() => navigate('add')}
+            onClick={() => navigate('workout/add')}
           >
             <i className="bi bi-plus-square fs-2"></i>
           </Button>
