@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { WorkoutContext } from '../context/WorkoutContext';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const { userDetails, setUserDetails } = useContext(WorkoutContext)
@@ -9,6 +9,10 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  if (userDetails.isLogin) {
+    return <Navigate to='/' />
+  }
 
   function handleLogin(e) {
     e.preventDefault();
