@@ -157,7 +157,7 @@ export default function EditWorkout() {
               </Form.Group>
 
               <Form.Group className="my-3" >
-                <Form.Label>Distance</Form.Label>
+                <Form.Label>Distance (km)</Form.Label>
                 <Form.Control
                   onChange={(e) => setDistance(e.target.value)}
                   value={distance}
