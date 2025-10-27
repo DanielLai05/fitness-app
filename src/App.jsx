@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import GoalsAndStats from './pages/GoalsAndStats'
 import AddGoals from './pages/AddGoals'
 import EditGoals from './pages/EditGoals'
+import Login from './pages/Login'
 
 function Layout() {
   return (
@@ -49,6 +50,7 @@ export default function App() {
             <Route path='stats/add' element={<AddGoals />} />
             <Route path='stats/:id' element={<EditGoals />} />
           </Route>
+          <Route path='login' element={<Login />} />
           <Route path='*' element={<Home />} />
         </Routes>
 
