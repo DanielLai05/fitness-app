@@ -138,7 +138,7 @@ export default function EditWorkout() {
                 />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Submit
+                Update
               </Button>
             </Form>
           </Container>

@@ -65,7 +65,7 @@ export default function EditGoals() {
         </Form.Group>
         <Button
           type='submit'
-        >Add</Button>
+        >Update</Button>
       </Form>
     </Container>
   )

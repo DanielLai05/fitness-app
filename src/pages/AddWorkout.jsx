@@ -130,7 +130,7 @@ export default function AddWorkout() {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Add
             </Button>
           </Form>
         </Tab>
@@ -178,7 +178,7 @@ export default function AddWorkout() {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Add
             </Button>
           </Form>
         </Tab>
